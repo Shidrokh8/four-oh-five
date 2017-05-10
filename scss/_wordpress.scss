@@ -1,0 +1,190 @@
+// Bootstrap WordPress extensions
+//
+// Adds Bootstrap 4 styles to WordPress widgets and other components.
+
+// Widgets - Archives, Categories, PAges
+//
+// Adds Archive, Category and Page widgets to Nav component
+
+.widget_archive ul,
+.widget_categories ul,
+.widget_meta ul,
+.widget_pages ul,
+.widget_recent_entries ul,
+.widget_recent_comments ul {
+  @extend .nav;
+  @extend .card-block;
+  flex-direction: column;
+}
+
+.widget_search form,
+.textwidget {
+  @extend .card-block;
+}
+
+.widget_archive li,
+.widget_categories li,
+.widget_meta li,
+.widget_pages li,
+.widget_recent_entries li,
+.widget_recent_comments li {
+  @extend .nav-item;
+  display: flex;
+    align-items: center;
+} 
+
+.widget_archive a,
+.widget_categories a,
+.widget_meta a,
+.widget_pages a,
+.widget_recent_entries a {
+  @extend .nav-link;
+  padding-left: 0;
+  padding-right: 0;
+  flex: 1;
+}
+
+// Widgets - Calendar Table
+//
+// Adds WordPress calendar widget to Bootstrap 4 table styles
+
+.widget_calendar table {
+  @extend .table;
+  margin-bottom: 0;
+}
+
+.widget_calendar caption {
+  @extend .card-header;
+  @extend .h4;
+  caption-side: top;
+}
+
+// Comments
+//
+// Styles comments and comment forms
+
+.comment-edit-link {
+  @extend .card-link;
+}
+
+.comment-respond {
+  @extend .card;
+  @extend .card-block;
+}
+
+.comment-form {
+  @extend .form-group;
+  input:not([type="submit"]),
+  textarea {
+    @extend .form-control;
+  }
+}
+
+.comment .card {
+  margin: $spacer;
+}
+
+// Pagination
+//
+// Styles Previous/Next post links
+
+.pagination a[rel="prev"],
+.pagination a[rel="next"] {
+  @extend .page-link;
+  padding: $spacer;
+}
+
+// WordPress Content
+//
+// General styles for WordPress content.
+
+.screen-reader-text {
+  @extend .sr-only;
+}
+
+.wp-caption {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+}
+
+.gallery-caption,
+.wp-caption-text {
+  @extend .text-muted;
+  font-style: italic;
+}
+
+.bypostauthor .card-header {
+  background-color: $brand-primary;
+  color: $white;
+}
+
+.alignright {
+  float: right;
+  margin-left: $spacer;
+}
+
+.aligncenter {
+  margin: 0 auto $spacer;
+}
+
+.alignleft {
+  float: left;
+  margin-right: $spacer;
+}
+
+figure,
+img {
+  height: auto !important;
+  max-width: 100% !important;
+}
+
+// Sticky Footer
+//
+// Makes the footer stick to the bottom of the page
+
+.sticky-footer {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Any one of the three selectors below is required for this to work. */
+main, 
+[role="main"],
+.main,
+.container {
+  flex: 1 !important;
+}
+
+// Pagination
+//
+// Styles pagination
+
+// pagination default
+.navigation.pagination {
+  text-align: center; 
+  .nav-links {
+    @extend .pagination;
+    .page-numbers {
+      @extend .page-link;
+      &:first-child {
+        margin-left: 0;
+        @include border-left-radius($border-radius);
+      }
+      &:last-child {
+        @include border-right-radius($border-radius);
+      }
+      &.current {
+        @include plain-hover-focus {
+          z-index: 2;
+          color: $pagination-active-color;
+          cursor: default;
+          background-color: $pagination-active-bg;
+          border-color: $pagination-active-border;
+        }
+      }
+    }
+  }
+}
+
+
